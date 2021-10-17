@@ -8,10 +8,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,6 +24,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { MapRadioComponent } from './components/map-radio/map-radio.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,7 @@ import { MenuComponent } from './components/menu/menu.component';
     NavigationComponent,
     TutorialComponent,
     MenuComponent,
+    MapRadioComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +53,9 @@ import { MenuComponent } from './components/menu/menu.component';
     LayoutModule,
     MatListModule,
     MatRadioModule,
+    FormsModule,
+    MatButtonToggleModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

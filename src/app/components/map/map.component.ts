@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Coord } from '../../coord';
 
 @Component({
   selector: 'app-map',
@@ -6,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
-  center: any = { lat: 47.4979, lng: 19.0402 };
+  center: Coord = { lat: 47.4979, lng: 19.0402 };
+  options: google.maps.MapOptions = {
+    disableDoubleClickZoom: true,
+  };
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onDblClick(event: google.maps.MapMouseEvent): void {
+    console.log(event);
+  }
 }
