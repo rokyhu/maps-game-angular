@@ -19,9 +19,10 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MapComponent, NavigationComponent, TutorialComponent],
+  declarations: [AppComponent, HeaderComponent, MapComponent, NavigationComponent, TutorialComponent, MenuComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

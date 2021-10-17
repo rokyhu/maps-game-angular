@@ -11,21 +11,22 @@
     <mat-nav-list>
       <a routerLink="/tutorial" mat-list-item>Tutorial</a>
       <a routerLink="/" mat-list-item>Play</a>
-      <a mat-list-item href="#">City 3</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async"
-      >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <app-header></app-header>
+      <mat-toolbar-row>
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async"
+        >
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <app-header></app-header>
+      </mat-toolbar-row>
     </mat-toolbar>
 
     <router-outlet></router-outlet>

@@ -1,4 +1,8 @@
 <header>
   <span>Maps Game logo</span>
-  <mat-slide-toggle></mat-slide-toggle>
+  <app-menu
+    [themeOptions]="themeOptions$ | async"
+    (themeChange)="themeChangeHandler($event)"
+  >
+  </app-menu>
 </header>

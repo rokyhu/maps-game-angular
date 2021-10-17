@@ -1,4 +1,4 @@
-export interface ThemeOptions {
+export interface ThemeOption {
   backgroundColor: string;
   buttonColor: string;
   headingColor: string;
