@@ -1,17 +1,16 @@
-<header class="header-6">
-  <div class="branding">
-    <a class="nav-link">
-      <cds-icon shape="bug"></cds-icon>
-      <span class="title">Project BugMaps</span>
-    </a>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <app-map></app-map>
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
   </div>
-  <div class="header-nav">
-    <a class="active nav-link nav-text">Instructions</a>
-    <a class="nav-link nav-text">Play</a>
-    <div class="header-actions">
-      <a href="javascript://" class="nav-link nav-icon" aria-label="settings">
-        <cds-icon shape="user"></cds-icon>
-      </a>
-    </div>
-  </div>
-</header>
+</mat-drawer-container>
