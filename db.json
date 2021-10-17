@@ -9,31 +9,31 @@
     {
       "id": 2,
       "name": "Szeged",
-      "coord": { "lat": 47.4979, "lng": 19.0402 },
+      "coord": { "lat": 46.253, "lng": 20.1414 },
       "disabled": false
     },
     {
       "id": 3,
       "name": "Pécs",
-      "coord": { "lat": 47.4979, "lng": 19.0402 },
+      "coord": { "lat": 46.0727, "lng": 18.2323 },
       "disabled": false
     },
     {
       "id": 4,
       "name": "Győr",
-      "coord": { "lat": 47.4979, "lng": 19.0402 },
+      "coord": { "lat": 47.6875, "lng": 17.6504 },
       "disabled": false
     },
     {
       "id": 5,
       "name": "Sopron",
-      "coord": { "lat": 47.4979, "lng": 19.0402 },
+      "coord": { "lat": 47.6817, "lng": 16.5845 },
       "disabled": false
     },
     {
       "id": 6,
       "name": "Keszthely",
-      "coord": { "lat": 47.4979, "lng": 19.0402 },
+      "coord": { "lat": 46.7655, "lng": 17.248 },
       "disabled": true
     }
   ]

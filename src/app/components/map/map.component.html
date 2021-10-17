@@ -1,15 +1,25 @@
 <mat-grid-list cols="3" rowHeight="700px">
   <mat-grid-tile class="align-text-top" colspan="1" rowspan="1">
-    <app-map-radio></app-map-radio>
+    <app-map-radio [cities]="cities"></app-map-radio>
   </mat-grid-tile>
   <mat-grid-tile id="map" colspan="2" rowspan="1">
     <google-map
       (mapDblclick)="onDblClick($event)"
       class="map-container"
+      [zoom]="zoom"
       [center]="center"
       height="700px"
       width="100%"
       [options]="options"
-    ></google-map>
+    >
+      <map-marker
+        *ngFor="let city of cities"
+        [position]="city.coord"
+        [label]="city.name"
+        [title]="city.name"
+        [options]="markerOptions"
+      >
+      </map-marker>
+    </google-map>
   </mat-grid-tile>
 </mat-grid-list>

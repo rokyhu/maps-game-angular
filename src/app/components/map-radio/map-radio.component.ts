@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { CitiesService } from 'src/app/services/cities.service';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { City } from '../../city';
 import { FormControl } from '@angular/forms';
 
@@ -9,16 +8,12 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./map-radio.component.scss'],
 })
 export class MapRadioComponent implements OnInit {
+  @Input() cities: City[] = [];
   activeCity = new FormControl('');
-  cities: City[];
 
-  constructor(private citiesService: CitiesService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.citiesService
-      .getCities()
-      .subscribe((cities) => (this.cities = cities));
-  }
+  ngOnInit(): void {}
 
   onCheck(): void {
     console.log(this.activeCity.value);
