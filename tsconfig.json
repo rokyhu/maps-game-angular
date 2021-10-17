@@ -20,7 +20,8 @@
     "lib": ["es2018", "dom"],
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "types": ["node", "googlemaps"]
+    "types": ["node", "googlemaps"],
+    "typeRoots": ["node_modules/@types"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

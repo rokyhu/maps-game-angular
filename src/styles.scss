@@ -1,6 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@use "@angular/material" as mat;
 
-@import "../src/assets/pink-bluegrey.css";
+// @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+@import "../src/assets/indigo-pink.css";
 
 * {
   box-sizing: border-box;
@@ -10,11 +12,36 @@
 
 html,
 body {
-  font-family: "Poppins", sans-serif;
+  // font-family: "Poppins", sans-serif;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+code {
+  padding: 16px;
 }
 
 ul,
 li {
   display: inline-block;
   margin-right: 20px;
+}
+
+@import "@angular/material/theming";
+@include mat.core();
+@import "../src/assets/quicksand.scss";
+
+.quicksand-types {
+  @include mat.all-component-typographies($quicksand-typography);
+}
+
+.mat-display-2,
+.mat-display-1 {
+  text-align: center;
 }

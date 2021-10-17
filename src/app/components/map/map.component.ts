@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {} from 'google.maps';
 
 @Component({
   selector: 'app-map',

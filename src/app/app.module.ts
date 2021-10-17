@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -22,7 +23,14 @@ import { TutorialComponent } from './components/tutorial/tutorial.component';
 import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MapComponent, NavigationComponent, TutorialComponent, MenuComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    MapComponent,
+    NavigationComponent,
+    TutorialComponent,
+    MenuComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,6 +47,7 @@ import { MenuComponent } from './components/menu/menu.component';
     MatSidenavModule,
     LayoutModule,
     MatListModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
