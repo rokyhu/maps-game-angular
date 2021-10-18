@@ -8,5 +8,16 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+if (environment) {
+  const head = document.querySelector('head');
+  let mapScript = document.createElement('script');
+  mapScript.setAttribute('id', 'google-maps-script');
+  mapScript.setAttribute('src', environment.GOOGLE_MAPS_API_KEY);
+  mapScript.setAttribute('async', 'true');
+  console.log(mapScript);
+  head.append(mapScript);
+}
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.error(err));

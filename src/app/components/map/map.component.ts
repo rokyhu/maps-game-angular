@@ -3,6 +3,7 @@ import { CitiesService } from 'src/app/services/cities.service';
 import { MapStylesService } from 'src/app/services/map-styles.service';
 import { City } from '../../city';
 import {} from 'googlemaps';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-map',
