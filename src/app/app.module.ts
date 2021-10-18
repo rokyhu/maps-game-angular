@@ -10,7 +10,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-import { GoogleMapsModule } from '@angular/google-maps';
+// import { GoogleMapsModule } from '@angular/google-maps';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
@@ -46,7 +46,6 @@ import { MapRadioComponent } from './components/map-radio/map-radio.component';
     MatMenuModule,
     MatGridListModule,
     MatButtonModule,
-    GoogleMapsModule,
     HttpClientModule,
     HttpClientJsonpModule,
     MatSidenavModule,

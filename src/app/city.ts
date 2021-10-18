@@ -4,7 +4,7 @@ import { Coord } from './coord';
 export interface City {
   id: number;
   name: string;
-  coord: Coord;
-  coordGuess?: Coord;
+  position: Coord;
+  positionGuess?: Coord;
   disabled: boolean;
 }
