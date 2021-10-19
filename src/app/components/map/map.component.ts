@@ -11,6 +11,7 @@ import {} from 'googlemaps';
 })
 export class MapComponent implements AfterViewInit {
   cities: City[];
+  currentGuessIndex: number = 0;
   markers: google.maps.Marker[] = [];
   markerGuess: google.maps.Marker = null;
   animationDrop: google.maps.Animation = google.maps.Animation.DROP;
@@ -27,9 +28,8 @@ export class MapComponent implements AfterViewInit {
 
   mapOptions: google.maps.MapOptions = {
     center: this.coordinates,
-    zoom: 7,
     disableDoubleClickZoom: true,
-    maxZoom: 14,
+    maxZoom: 7,
     styles: [],
   };
 
@@ -50,9 +50,9 @@ export class MapComponent implements AfterViewInit {
       this.addMarkerGuess(e.latLng, this.map, null)
     );
     this.revealMarkers();
-    // const bounds = this.getBounds();
-    // this.map.fitBounds(bounds);
-    // console.log(this.markers);
+    console.log(this.markers);
+    const bounds = this.getBounds();
+    this.map.fitBounds(bounds);
   }
 
   revealMarkers() {
@@ -70,35 +70,35 @@ export class MapComponent implements AfterViewInit {
   //   console.log(event);
   // }
 
-  // getBounds() {
-  //   let north;
-  //   let south;
-  //   let east;
-  //   let west;
+  getBounds() {
+    let north;
+    let south;
+    let east;
+    let west;
 
-  //   for (let marker of this.markers) {
-  //     north =
-  //       north !== undefined
-  //         ? Math.max(north, marker.getPosition)
-  //         : marker.position;
-  //     south =
-  //       south !== undefined
-  //         ? Math.min(south, marker.position.lat)
-  //         : marker.position.lat;
-  //     east =
-  //       east !== undefined
-  //         ? Math.max(east, marker.position.lng)
-  //         : marker.position.lng;
-  //     west =
-  //       west !== undefined
-  //         ? Math.min(west, marker.position.lng)
-  //         : marker.position.lng;
-  //   }
+    for (let marker of this.markers) {
+      north =
+        north !== undefined
+          ? Math.max(north, marker.getPosition().lat())
+          : marker.getPosition().lat();
+      south =
+        south !== undefined
+          ? Math.min(south, marker.getPosition().lat())
+          : marker.getPosition().lat();
+      east =
+        east !== undefined
+          ? Math.max(east, marker.getPosition().lng())
+          : marker.getPosition().lng();
+      west =
+        west !== undefined
+          ? Math.min(west, marker.getPosition().lng())
+          : marker.getPosition().lng();
+    }
 
-  //   const bounds = { north, south, east, west };
+    const bounds = { north, south, east, west };
 
-  //   return bounds;
-  // }
+    return bounds;
+  }
 
   addMarker(
     position: google.maps.LatLng,
