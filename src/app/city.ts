@@ -4,7 +4,7 @@ import { Coord } from './coord';
 export interface City {
   id: number;
   name: string;
-  position: Coord;
+  position: google.maps.LatLng;
   positionGuess?: Coord;
   disabled: boolean;
 }
