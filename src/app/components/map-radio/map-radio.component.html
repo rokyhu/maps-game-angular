@@ -52,7 +52,7 @@
         (change)="onCheck()"
         value="Szentendre"
         checked="true"
-        disabled="{{ false }}"
+        disabled="true"
       >
         <mat-icon aria-hidden="false" aria-label="Pin icon">room</mat-icon
         >Szentendre
@@ -65,7 +65,12 @@
       [formControl]="activeCity"
       aria-label="Select City"
     >
-      <mat-button-toggle> Next </mat-button-toggle>
+      <mat-button-toggle>
+        Next
+        <mat-icon aria-hidden="false" aria-label="Right arrow icon"
+          >chevron_right</mat-icon
+        ></mat-button-toggle
+      >
     </mat-button-toggle-group>
 
     <p>Double click to place city on map then click next to confirm.</p>
