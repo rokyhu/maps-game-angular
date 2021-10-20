@@ -10,7 +10,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-// import { GoogleMapsModule } from '@angular/google-maps';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
