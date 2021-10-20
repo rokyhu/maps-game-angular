@@ -4,8 +4,8 @@ import { MapComponent } from './components/map/map.component';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
 
 const routes: Routes = [
-  { path: '', component: MapComponent },
-  { path: 'tutorial', component: TutorialComponent },
+  { path: 'play', component: MapComponent },
+  { path: '', component: TutorialComponent },
 ];
 
 @NgModule({

@@ -29,6 +29,8 @@ export class MapComponent implements AfterViewInit {
   mapOptions: google.maps.MapOptions = {
     center: this.coordinates,
     disableDoubleClickZoom: true,
+    mapTypeControl: false,
+    streetViewControl: false,
     maxZoom: 7,
     styles: [],
   };

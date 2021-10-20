@@ -9,13 +9,12 @@ if (environment.production) {
 }
 
 if (environment) {
-  const head = document.querySelector('head');
   let mapScript = document.createElement('script');
-  mapScript.setAttribute('id', 'google-maps-script');
-  mapScript.setAttribute('src', environment.GOOGLE_MAPS_API_KEY);
-  mapScript.setAttribute('async', 'true');
-  console.log(mapScript);
-  head.append(mapScript);
+  mapScript.id = 'google-maps-script';
+  mapScript.src = environment.GOOGLE_MAPS_SCRIPT;
+  mapScript.async = true;
+  mapScript.defer = true;
+  document.head.append(mapScript);
 }
 
 platformBrowserDynamic()
