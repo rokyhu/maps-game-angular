@@ -1,0 +1,20 @@
+<div class="mat-typography">
+  <section>
+    <mat-button-toggle-group
+      vertical="false"
+      [formControl]="selectedMapStyle"
+      aria-label="Select Map Style"
+      value="activeMapStyle"
+    >
+      <mat-button-toggle
+        (change)="onChangeMapStyle()"
+        *ngFor="let style of mapStyles | keyvalue"
+        checked="{{ style.key === activeMapStyle }}"
+        value="{{ style.key }}"
+        disabled="false"
+      >
+        {{ style.key }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </section>
+</div>

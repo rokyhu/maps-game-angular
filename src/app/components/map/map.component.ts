@@ -3,6 +3,7 @@ import { CitiesService } from 'src/app/services/cities.service';
 import { MapStylesService } from 'src/app/services/map-styles.service';
 import { City } from '../../city';
 import {} from 'googlemaps';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-map',
@@ -11,10 +12,11 @@ import {} from 'googlemaps';
 })
 export class MapComponent implements AfterViewInit {
   cities: City[];
+  mapStyles: any;
+  activeMapStyle: string = 'dark';
   currentGuessIndex: number = 0;
   markers: google.maps.Marker[] = [];
   markerGuess: google.maps.Marker = null;
-  animationDrop: google.maps.Animation = google.maps.Animation.DROP;
 
   targetIcon = '../../assets/images/target-32px.png';
 
@@ -24,29 +26,31 @@ export class MapComponent implements AfterViewInit {
   lat = 46.4979;
   lng = 19.0402;
 
-  coordinates = new google.maps.LatLng(this.lat, this.lng);
+  coordinates: google.maps.LatLng;
 
-  mapOptions: google.maps.MapOptions = {
-    center: this.coordinates,
-    disableDoubleClickZoom: true,
-    mapTypeControl: false,
-    streetViewControl: false,
-    maxZoom: 7,
-    styles: [],
-  };
+  mapOptions: google.maps.MapOptions;
 
   ngAfterViewInit() {
     this.citiesService.getCities().subscribe((cities) => {
       this.cities = cities;
-      this.mapInitializer();
       this.mapStyleService.getMapStyles('gta').subscribe((styles) => {
-        this.mapOptions.styles = styles.dark;
-        this.map.setOptions(this.mapOptions);
+        this.mapStyles = styles;
+        this.mapInitializer();
       });
     });
   }
 
   mapInitializer() {
+    this.coordinates = new google.maps.LatLng(this.lat, this.lng);
+    this.mapOptions = {
+      center: this.coordinates,
+      disableDoubleClickZoom: true,
+      mapTypeControl: false,
+      streetViewControl: false,
+      maxZoom: 7,
+      styles: this.mapStyles[this.activeMapStyle],
+    };
+
     this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
     this.map.addListener('dblclick', (e) =>
       this.addMarkerGuess(e.latLng, this.map, null)
@@ -59,7 +63,7 @@ export class MapComponent implements AfterViewInit {
 
   revealMarkers() {
     for (const city of this.cities) {
-      this.addMarker(city.position, this.map, this.animationDrop);
+      this.addMarker(city.position, this.map, google.maps.Animation.DROP);
     }
   }
 
@@ -149,5 +153,10 @@ export class MapComponent implements AfterViewInit {
       icon: icon,
       animation: animation,
     });
+  }
+
+  changeMap(style: string) {
+    this.mapOptions.styles = this.mapStyles[style];
+    this.map.setOptions(this.mapOptions);
   }
 }

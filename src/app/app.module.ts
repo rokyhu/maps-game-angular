@@ -25,6 +25,7 @@ import { MatListModule } from '@angular/material/list';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MapRadioComponent } from './components/map-radio/map-radio.component';
+import { MapStylesComponent } from './components/map-styles/map-styles.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MapRadioComponent } from './components/map-radio/map-radio.component';
     TutorialComponent,
     MenuComponent,
     MapRadioComponent,
+    MapStylesComponent,
   ],
   imports: [
     BrowserModule,
