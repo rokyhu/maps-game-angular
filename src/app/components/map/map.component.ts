@@ -1,10 +1,15 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+  HostListener,
+} from '@angular/core';
 import { CitiesService } from 'src/app/services/cities.service';
 import { MapStylesService } from 'src/app/services/map-styles.service';
 import { City } from '../../city';
 import {} from 'googlemaps';
-import { EventEmitter } from 'stream';
-import { CLARITY_MOTION_ENTER_LEAVE_PROPERTY } from '@cds/core/internal';
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 
 @Component({
   selector: 'app-map',
@@ -12,6 +17,13 @@ import { CLARITY_MOTION_ENTER_LEAVE_PROPERTY } from '@cds/core/internal';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements AfterViewInit {
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.key === 'c') {
+      this.toggleGameMarkersOnMap();
+    }
+  }
+
   cities: City[];
   pickedCities: City[];
   mapStyles: any;
@@ -57,9 +69,9 @@ export class MapComponent implements AfterViewInit {
 
     this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
     this.map.addListener('dblclick', (e) =>
-      this.addMarkerGuess(e.latLng, this.map, 'Your guess', null)
+      this.addMarkerGuess(e.latLng, this.map, 'Your guess')
     );
-    this.revealMarkers();
+    this.addGameMarkers();
     this.bounds = this.getBounds();
     this.map.fitBounds(this.bounds);
   }
@@ -77,15 +89,30 @@ export class MapComponent implements AfterViewInit {
     return pickedCities;
   }
 
-  revealMarkers() {
+  addGameMarkers() {
     for (const city of this.pickedCities) {
-      this.addMarker(
+      this.addGameMarker(
         new google.maps.LatLng(parseFloat(city.lat), parseFloat(city.lng)),
         this.map,
-        city.city,
-        google.maps.Animation.DROP
+        city.city
       );
-      console.log(parseInt(city.lat), parseInt(city.lng));
+    }
+  }
+
+  toggleGameMarkersOnMap() {
+    if (this.markers[0].getMap() == null) {
+      this.setMapOnAll(this.map);
+    } else {
+      this.setMapOnAll(null);
+    }
+  }
+
+  setMapOnAll(map: google.maps.Map) {
+    for (let marker of this.markers) {
+      marker.setMap(map);
+      if (map !== null) {
+        marker.setAnimation(google.maps.Animation.DROP);
+      }
     }
   }
 
@@ -124,36 +151,22 @@ export class MapComponent implements AfterViewInit {
     return bounds;
   }
 
-  addMarker(
+  addGameMarker(
     position: google.maps.LatLng,
     map: google.maps.Map,
-    title: string,
-    animation: google.maps.Animation
+    title: string
   ) {
-    const marker = this.createMarker(position, map, title, animation, null);
-    marker.setMap(map);
+    const marker = this.createMarker(position, map, title, null);
     this.markers.push(marker);
-
-    marker.addListener('dblclick', () => {
-      marker.setMap(null);
-      this.markers = this.markers.filter((m) => m !== marker);
-      console.log(marker);
-    });
+    marker.setMap(null);
   }
 
   addMarkerGuess(
     position: google.maps.LatLng,
     map: google.maps.Map,
-    title: string,
-    animation: google.maps.Animation
+    title: string
   ) {
-    const marker = this.createMarker(
-      position,
-      map,
-      title,
-      animation,
-      this.targetIcon
-    );
+    const marker = this.createMarker(position, map, title, this.targetIcon);
     if (this.markerGuess !== null) {
       this.markerGuess.setMap(null);
     }
@@ -170,7 +183,6 @@ export class MapComponent implements AfterViewInit {
     position: google.maps.LatLng,
     map: google.maps.Map,
     title: string,
-    animation: google.maps.Animation,
     icon: any
   ) {
     return new google.maps.Marker({
@@ -178,7 +190,6 @@ export class MapComponent implements AfterViewInit {
       map: map,
       title: title,
       icon: icon,
-      animation: animation,
     });
   }
 
