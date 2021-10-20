@@ -4,6 +4,7 @@ import { MapStylesService } from 'src/app/services/map-styles.service';
 import { City } from '../../city';
 import {} from 'googlemaps';
 import { EventEmitter } from 'stream';
+import { CLARITY_MOTION_ENTER_LEAVE_PROPERTY } from '@cds/core/internal';
 
 @Component({
   selector: 'app-map',
@@ -12,11 +13,13 @@ import { EventEmitter } from 'stream';
 })
 export class MapComponent implements AfterViewInit {
   cities: City[];
+  pickedCities: City[];
   mapStyles: any;
-  activeMapStyle: string = 'dark';
+  activeMapStyle: string = 'silver';
   currentGuessIndex: number = 0;
   markers: google.maps.Marker[] = [];
   markerGuess: google.maps.Marker = null;
+  bounds: any;
 
   targetIcon = '../../assets/images/target-32px.png';
 
@@ -33,6 +36,7 @@ export class MapComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.citiesService.getCities().subscribe((cities) => {
       this.cities = cities;
+      this.pickedCities = this.pickCities(10);
       this.mapStyleService.getMapStyles('gta').subscribe((styles) => {
         this.mapStyles = styles;
         this.mapInitializer();
@@ -47,23 +51,41 @@ export class MapComponent implements AfterViewInit {
       disableDoubleClickZoom: true,
       mapTypeControl: false,
       streetViewControl: false,
-      maxZoom: 7,
+      maxZoom: 8,
       styles: this.mapStyles[this.activeMapStyle],
     };
 
     this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
     this.map.addListener('dblclick', (e) =>
-      this.addMarkerGuess(e.latLng, this.map, null)
+      this.addMarkerGuess(e.latLng, this.map, 'Your guess', null)
     );
     this.revealMarkers();
-    console.log(this.markers);
-    const bounds = this.getBounds();
-    this.map.fitBounds(bounds);
+    this.bounds = this.getBounds();
+    this.map.fitBounds(this.bounds);
+  }
+
+  pickCities(count: number): City[] {
+    const pickedCities: City[] = [];
+    for (let i = 0; i < count; i++) {
+      let pickedCity: City;
+      do {
+        pickedCity =
+          this.cities[Math.floor(Math.random() * this.cities.length)];
+      } while (pickedCities.indexOf(pickedCity) != -1);
+      pickedCities.push(pickedCity);
+    }
+    return pickedCities;
   }
 
   revealMarkers() {
-    for (const city of this.cities) {
-      this.addMarker(city.position, this.map, google.maps.Animation.DROP);
+    for (const city of this.pickedCities) {
+      this.addMarker(
+        new google.maps.LatLng(parseFloat(city.lat), parseFloat(city.lng)),
+        this.map,
+        city.city,
+        google.maps.Animation.DROP
+      );
+      console.log(parseInt(city.lat), parseInt(city.lng));
     }
   }
 
@@ -71,10 +93,6 @@ export class MapComponent implements AfterViewInit {
     private citiesService: CitiesService,
     private mapStyleService: MapStylesService
   ) {}
-
-  // onDblClick(event: google.maps.MapMouseEvent): void {
-  //   console.log(event);
-  // }
 
   getBounds() {
     let north;
@@ -109,9 +127,10 @@ export class MapComponent implements AfterViewInit {
   addMarker(
     position: google.maps.LatLng,
     map: google.maps.Map,
+    title: string,
     animation: google.maps.Animation
   ) {
-    const marker = this.createMarker(position, map, animation, null);
+    const marker = this.createMarker(position, map, title, animation, null);
     marker.setMap(map);
     this.markers.push(marker);
 
@@ -125,9 +144,16 @@ export class MapComponent implements AfterViewInit {
   addMarkerGuess(
     position: google.maps.LatLng,
     map: google.maps.Map,
+    title: string,
     animation: google.maps.Animation
   ) {
-    const marker = this.createMarker(position, map, animation, this.targetIcon);
+    const marker = this.createMarker(
+      position,
+      map,
+      title,
+      animation,
+      this.targetIcon
+    );
     if (this.markerGuess !== null) {
       this.markerGuess.setMap(null);
     }
@@ -143,13 +169,14 @@ export class MapComponent implements AfterViewInit {
   createMarker(
     position: google.maps.LatLng,
     map: google.maps.Map,
+    title: string,
     animation: google.maps.Animation,
     icon: any
   ) {
     return new google.maps.Marker({
       position: position,
       map: map,
-      title: 'Hello World!',
+      title: title,
       icon: icon,
       animation: animation,
     });
@@ -158,5 +185,6 @@ export class MapComponent implements AfterViewInit {
   changeMap(style: string) {
     this.mapOptions.styles = this.mapStyles[style];
     this.map.setOptions(this.mapOptions);
+    this.map.fitBounds(this.bounds);
   }
 }

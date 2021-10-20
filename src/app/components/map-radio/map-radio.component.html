@@ -29,10 +29,10 @@
       <mat-button-toggle
         (change)="onCheck()"
         *ngFor="let city of cities"
-        value="{{ city.name }}"
+        value="{{ city.city }}"
         disabled="{{ city.disabled }}"
       >
-        {{ city.name }}
+        {{ city.city }}
       </mat-button-toggle>
     </mat-button-toggle-group>
   </section>

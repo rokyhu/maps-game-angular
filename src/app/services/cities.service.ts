@@ -8,6 +8,7 @@ import { City } from '../city';
 })
 export class CitiesService {
   private apiUrl: string = 'http://localhost:5000/cities';
+  private cities: City[];
 
   constructor(private http: HttpClient) {}
 

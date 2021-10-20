@@ -1,330 +1,975 @@
 {
   "cities": [
     {
-      "id": 1,
-      "name": "Budapest",
-      "position": { "lat": 47.4979, "lng": 19.0402 },
-      "disabled": false
+      "city": "Budapest",
+      "lat": "47.4983",
+      "lng": "19.0408",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Budapest",
+      "capital": "primary",
+      "population": "1752286",
+      "population_proper": "1752286"
     },
     {
-      "id": 2,
-      "name": "Szeged",
-      "position": { "lat": 46.253, "lng": 20.1414 },
-      "disabled": false
+      "city": "Debrecen",
+      "lat": "47.5300",
+      "lng": "21.6392",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Hajdú-Bihar",
+      "capital": "admin",
+      "population": "201432",
+      "population_proper": "201432"
     },
     {
-      "id": 3,
-      "name": "Pécs",
-      "position": { "lat": 46.0727, "lng": 18.2323 },
-      "disabled": false
+      "city": "Szeged",
+      "lat": "46.2500",
+      "lng": "20.1667",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Csongrád",
+      "capital": "admin",
+      "population": "160766",
+      "population_proper": "160766"
     },
     {
-      "id": 4,
-      "name": "Győr",
-      "position": { "lat": 47.6875, "lng": 17.6504 },
-      "disabled": false
+      "city": "Miskolc",
+      "lat": "48.1000",
+      "lng": "20.7833",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Borsod-Abaúj-Zemplén",
+      "capital": "admin",
+      "population": "154521",
+      "population_proper": "154521"
     },
     {
-      "id": 5,
-      "name": "Sopron",
-      "position": { "lat": 47.6817, "lng": 16.5845 },
-      "disabled": false
+      "city": "Pécs",
+      "lat": "46.0708",
+      "lng": "18.2331",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Baranya",
+      "capital": "admin",
+      "population": "142873",
+      "population_proper": "142873"
     },
     {
-      "id": 6,
-      "name": "Keszthely",
-      "position": { "lat": 46.7655, "lng": 17.248 },
-      "disabled": true
+      "city": "Győr",
+      "lat": "47.6842",
+      "lng": "17.6344",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Győr-Moson-Sopron",
+      "capital": "admin",
+      "population": "132034",
+      "population_proper": "132034"
+    },
+    {
+      "city": "Nyíregyháza",
+      "lat": "47.9500",
+      "lng": "21.7167",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Szabolcs-Szatmár-Bereg",
+      "capital": "admin",
+      "population": "116799",
+      "population_proper": "116799"
+    },
+    {
+      "city": "Kecskemét",
+      "lat": "46.9074",
+      "lng": "19.6917",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Bács-Kiskun",
+      "capital": "admin",
+      "population": "110687",
+      "population_proper": "110687"
+    },
+    {
+      "city": "Székesfehérvár",
+      "lat": "47.2000",
+      "lng": "18.4167",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Fejér",
+      "capital": "admin",
+      "population": "96940",
+      "population_proper": "96940"
+    },
+    {
+      "city": "Szombathely",
+      "lat": "47.2333",
+      "lng": "16.6333",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Vas",
+      "capital": "admin",
+      "population": "78407",
+      "population_proper": "78407"
+    },
+    {
+      "city": "Szolnok",
+      "lat": "47.1747",
+      "lng": "20.1764",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Jász-Nagykun-Szolnok",
+      "capital": "admin",
+      "population": "71285",
+      "population_proper": "71285"
+    },
+    {
+      "city": "Érd",
+      "lat": "47.3833",
+      "lng": "18.9167",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "66892",
+      "population_proper": "66892"
+    },
+    {
+      "city": "Tatabánya",
+      "lat": "47.5862",
+      "lng": "18.3949",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Komárom-Esztergom",
+      "capital": "admin",
+      "population": "65845",
+      "population_proper": "65845"
+    },
+    {
+      "city": "Sopron",
+      "lat": "47.6833",
+      "lng": "16.5833",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Sopron",
+      "capital": "admin",
+      "population": "62454",
+      "population_proper": "62454"
+    },
+    {
+      "city": "Kaposvár",
+      "lat": "46.3667",
+      "lng": "17.7833",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Somogy",
+      "capital": "admin",
+      "population": "61441",
+      "population_proper": "61441"
+    },
+    {
+      "city": "Veszprém",
+      "lat": "47.1000",
+      "lng": "17.9167",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Veszprém",
+      "capital": "admin",
+      "population": "59738",
+      "population_proper": "59738"
+    },
+    {
+      "city": "Békéscsaba",
+      "lat": "46.6833",
+      "lng": "21.0833",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Békés",
+      "capital": "admin",
+      "population": "58996",
+      "population_proper": "58996"
+    },
+    {
+      "city": "Zalaegerszeg",
+      "lat": "46.8392",
+      "lng": "16.8511",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Zala",
+      "capital": "admin",
+      "population": "57403",
+      "population_proper": "57403"
+    },
+    {
+      "city": "Eger",
+      "lat": "47.8989",
+      "lng": "20.3747",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Heves",
+      "capital": "admin",
+      "population": "52898",
+      "population_proper": "52898"
+    },
+    {
+      "city": "Nagykanizsa",
+      "lat": "46.4558",
+      "lng": "16.9975",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Nagykanizsa",
+      "capital": "admin",
+      "population": "46866",
+      "population_proper": "46866"
+    },
+    {
+      "city": "Dunaújváros",
+      "lat": "46.9833",
+      "lng": "18.9167",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Dunaújváros",
+      "capital": "admin",
+      "population": "44200",
+      "population_proper": "44200"
+    },
+    {
+      "city": "Dunakeszi",
+      "lat": "47.6297",
+      "lng": "19.1381",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "43490",
+      "population_proper": "43490"
+    },
+    {
+      "city": "Hódmezővásárhely",
+      "lat": "46.4303",
+      "lng": "20.3189",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Hódmezővásárhely",
+      "capital": "admin",
+      "population": "43311",
+      "population_proper": "43311"
+    },
+    {
+      "city": "Szigetszentmiklós",
+      "lat": "47.3453",
+      "lng": "19.0483",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "38591",
+      "population_proper": "38591"
+    },
+    {
+      "city": "Vác",
+      "lat": "47.7753",
+      "lng": "19.1311",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "36310",
+      "population_proper": "36310"
+    },
+    {
+      "city": "Cegléd",
+      "lat": "47.1772",
+      "lng": "19.7981",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "35523",
+      "population_proper": "35523"
+    },
+    {
+      "city": "Baja",
+      "lat": "46.1833",
+      "lng": "18.9536",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Bács-Kiskun",
+      "capital": "minor",
+      "population": "34788",
+      "population_proper": "34788"
+    },
+    {
+      "city": "Salgótarján",
+      "lat": "48.0853",
+      "lng": "19.7867",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Nógrád",
+      "capital": "admin",
+      "population": "33579",
+      "population_proper": "33579"
+    },
+    {
+      "city": "Mosonmagyaróvár",
+      "lat": "47.8667",
+      "lng": "17.2667",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Győr-Moson-Sopron",
+      "capital": "minor",
+      "population": "33318",
+      "population_proper": "33318"
+    },
+    {
+      "city": "Ózd",
+      "lat": "48.2192",
+      "lng": "20.2869",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Borsod-Abaúj-Zemplén",
+      "capital": "minor",
+      "population": "32564",
+      "population_proper": "32564"
+    },
+    {
+      "city": "Gödöllő",
+      "lat": "47.6000",
+      "lng": "19.3667",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "32131",
+      "population_proper": "32131"
+    },
+    {
+      "city": "Szekszárd",
+      "lat": "46.3558",
+      "lng": "18.7039",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Tolna",
+      "capital": "admin",
+      "population": "31795",
+      "population_proper": "31795"
+    },
+    {
+      "city": "Hajdúböszörmény",
+      "lat": "47.6667",
+      "lng": "21.5167",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Hajdú-Bihar",
+      "capital": "minor",
+      "population": "30704",
+      "population_proper": "30704"
+    },
+    {
+      "city": "Pápa",
+      "lat": "47.3306",
+      "lng": "17.4658",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Veszprém",
+      "capital": "minor",
+      "population": "30382",
+      "population_proper": "30382"
+    },
+    {
+      "city": "Gyöngyös",
+      "lat": "47.7833",
+      "lng": "19.9333",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Heves",
+      "capital": "minor",
+      "population": "29337",
+      "population_proper": "29337"
+    },
+    {
+      "city": "Gyula",
+      "lat": "46.6500",
+      "lng": "21.2828",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Békés",
+      "capital": "minor",
+      "population": "29308",
+      "population_proper": "29308"
+    },
+    {
+      "city": "Kiskunfélegyháza",
+      "lat": "46.7050",
+      "lng": "19.8500",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Bács-Kiskun",
+      "capital": "minor",
+      "population": "29306",
+      "population_proper": "29306"
+    },
+    {
+      "city": "Budaörs",
+      "lat": "47.4606",
+      "lng": "18.9578",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "",
+      "population": "28844",
+      "population_proper": "28844"
+    },
+    {
+      "city": "Esztergom",
+      "lat": "47.7856",
+      "lng": "18.7403",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Komárom-Esztergom",
+      "capital": "minor",
+      "population": "28144",
+      "population_proper": "28144"
+    },
+    {
+      "city": "Ajka",
+      "lat": "47.1006",
+      "lng": "17.5522",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Veszprém",
+      "capital": "minor",
+      "population": "27995",
+      "population_proper": "27995"
+    },
+    {
+      "city": "Orosháza",
+      "lat": "46.5678",
+      "lng": "20.6428",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Békés",
+      "capital": "minor",
+      "population": "27492",
+      "population_proper": "27492"
+    },
+    {
+      "city": "Jászberény",
+      "lat": "47.5000",
+      "lng": "19.9167",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Jász-Nagykun-Szolnok",
+      "capital": "minor",
+      "population": "27439",
+      "population_proper": "27439"
+    },
+    {
+      "city": "Szentes",
+      "lat": "46.6519",
+      "lng": "20.2572",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Csongrád",
+      "capital": "minor",
+      "population": "27080",
+      "population_proper": "27080"
+    },
+    {
+      "city": "Kiskunhalas",
+      "lat": "46.4319",
+      "lng": "19.4883",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Bács-Kiskun",
+      "capital": "minor",
+      "population": "27017",
+      "population_proper": "27017"
+    },
+    {
+      "city": "Szentendre",
+      "lat": "47.6733",
+      "lng": "19.0725",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "26447",
+      "population_proper": "26447"
+    },
+    {
+      "city": "Kazincbarcika",
+      "lat": "48.2531",
+      "lng": "20.6456",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Borsod-Abaúj-Zemplén",
+      "capital": "minor",
+      "population": "26337",
+      "population_proper": "26337"
+    },
+    {
+      "city": "Siófok",
+      "lat": "46.9000",
+      "lng": "18.0500",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Somogy",
+      "capital": "minor",
+      "population": "25461",
+      "population_proper": "25461"
+    },
+    {
+      "city": "Hajdúszoboszló",
+      "lat": "47.4500",
+      "lng": "21.3833",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Hajdú-Bihar",
+      "capital": "minor",
+      "population": "23873",
+      "population_proper": "23873"
+    },
+    {
+      "city": "Gyál",
+      "lat": "47.3822",
+      "lng": "19.2136",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "23628",
+      "population_proper": "23628"
+    },
+    {
+      "city": "Nagykőrös",
+      "lat": "47.0331",
+      "lng": "19.7839",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "23605",
+      "population_proper": "23605"
+    },
+    {
+      "city": "Tata",
+      "lat": "47.6500",
+      "lng": "18.3167",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Komárom-Esztergom",
+      "capital": "minor",
+      "population": "23377",
+      "population_proper": "23377"
+    },
+    {
+      "city": "Komló",
+      "lat": "46.1911",
+      "lng": "18.2611",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Baranya",
+      "capital": "minor",
+      "population": "22635",
+      "population_proper": "22635"
+    },
+    {
+      "city": "Makó",
+      "lat": "46.2200",
+      "lng": "20.4789",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Csongrád",
+      "capital": "minor",
+      "population": "22514",
+      "population_proper": "22514"
+    },
+    {
+      "city": "Dunaharaszti",
+      "lat": "47.3553",
+      "lng": "19.0844",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "",
+      "population": "21901",
+      "population_proper": "21901"
+    },
+    {
+      "city": "Vecsés",
+      "lat": "47.4108",
+      "lng": "19.2722",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "20935",
+      "population_proper": "20935"
+    },
+    {
+      "city": "Hatvan",
+      "lat": "47.6681",
+      "lng": "19.6697",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Heves",
+      "capital": "minor",
+      "population": "20167",
+      "population_proper": "20167"
+    },
+    {
+      "city": "Törökszentmiklós",
+      "lat": "47.1833",
+      "lng": "20.4167",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Jász-Nagykun-Szolnok",
+      "capital": "minor",
+      "population": "19890",
+      "population_proper": "19890"
+    },
+    {
+      "city": "Karcag",
+      "lat": "47.3167",
+      "lng": "20.9333",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Jász-Nagykun-Szolnok",
+      "capital": "minor",
+      "population": "19732",
+      "population_proper": "19732"
+    },
+    {
+      "city": "Fót",
+      "lat": "47.6092",
+      "lng": "19.1928",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "",
+      "population": "19674",
+      "population_proper": "19674"
+    },
+    {
+      "city": "Várpalota",
+      "lat": "47.1972",
+      "lng": "18.1394",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Veszprém",
+      "capital": "minor",
+      "population": "19484",
+      "population_proper": "19484"
+    },
+    {
+      "city": "Keszthely",
+      "lat": "46.7675",
+      "lng": "17.2463",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Zala",
+      "capital": "minor",
+      "population": "19387",
+      "population_proper": "19387"
+    },
+    {
+      "city": "Komárom",
+      "lat": "47.7400",
+      "lng": "18.1217",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Komárom-Esztergom",
+      "capital": "minor",
+      "population": "18805",
+      "population_proper": "18805"
+    },
+    {
+      "city": "Paks",
+      "lat": "46.6219",
+      "lng": "18.8558",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Tolna",
+      "capital": "minor",
+      "population": "18788",
+      "population_proper": "18788"
+    },
+    {
+      "city": "Veresegyház",
+      "lat": "47.6569",
+      "lng": "19.2847",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "",
+      "population": "18654",
+      "population_proper": "18654"
+    },
+    {
+      "city": "Békés",
+      "lat": "46.7769",
+      "lng": "21.1250",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Békés",
+      "capital": "minor",
+      "population": "18322",
+      "population_proper": "18322"
+    },
+    {
+      "city": "Gyömrő",
+      "lat": "47.4353",
+      "lng": "19.3986",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "",
+      "population": "18301",
+      "population_proper": "18301"
+    },
+    {
+      "city": "Százhalombatta",
+      "lat": "47.3167",
+      "lng": "18.9114",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "",
+      "population": "18241",
+      "population_proper": "18241"
+    },
+    {
+      "city": "Göd",
+      "lat": "47.6906",
+      "lng": "19.1344",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "",
+      "population": "18218",
+      "population_proper": "18218"
+    },
+    {
+      "city": "Oroszlány",
+      "lat": "47.4892",
+      "lng": "18.3164",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Komárom-Esztergom",
+      "capital": "minor",
+      "population": "18171",
+      "population_proper": "18171"
+    },
+    {
+      "city": "Monor",
+      "lat": "47.3475",
+      "lng": "19.4489",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "18084",
+      "population_proper": "18084"
+    },
+    {
+      "city": "Dombóvár",
+      "lat": "46.3769",
+      "lng": "18.1310",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Tolna",
+      "capital": "minor",
+      "population": "17995",
+      "population_proper": "17995"
+    },
+    {
+      "city": "Szigethalom",
+      "lat": "47.3228",
+      "lng": "19.0128",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "",
+      "population": "17596",
+      "population_proper": "17596"
+    },
+    {
+      "city": "Pomáz",
+      "lat": "47.6472",
+      "lng": "19.0269",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "",
+      "population": "17139",
+      "population_proper": "17139"
+    },
+    {
+      "city": "Balmazújváros",
+      "lat": "47.6167",
+      "lng": "21.3500",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Hajdú-Bihar",
+      "capital": "minor",
+      "population": "17109",
+      "population_proper": "17109"
+    },
+    {
+      "city": "Mohács",
+      "lat": "45.9958",
+      "lng": "18.6797",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Baranya",
+      "capital": "minor",
+      "population": "17089",
+      "population_proper": "17089"
+    },
+    {
+      "city": "Dabas",
+      "lat": "47.1833",
+      "lng": "19.3167",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "minor",
+      "population": "17023",
+      "population_proper": "17023"
+    },
+    {
+      "city": "Hajdúnánás",
+      "lat": "47.8500",
+      "lng": "21.4333",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Hajdú-Bihar",
+      "capital": "minor",
+      "population": "16828",
+      "population_proper": "16828"
+    },
+    {
+      "city": "Mátészalka",
+      "lat": "47.9431",
+      "lng": "22.3167",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Szabolcs-Szatmár-Bereg",
+      "capital": "minor",
+      "population": "16576",
+      "population_proper": "16576"
+    },
+    {
+      "city": "Mezőkövesd",
+      "lat": "47.8067",
+      "lng": "20.5647",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Borsod-Abaúj-Zemplén",
+      "capital": "minor",
+      "population": "16107",
+      "population_proper": "16107"
+    },
+    {
+      "city": "Mezőtúr",
+      "lat": "47.0042",
+      "lng": "20.6181",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Jász-Nagykun-Szolnok",
+      "capital": "minor",
+      "population": "16086",
+      "population_proper": "16086"
+    },
+    {
+      "city": "Kisvárda",
+      "lat": "48.2264",
+      "lng": "22.0844",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Szabolcs-Szatmár-Bereg",
+      "capital": "minor",
+      "population": "16084",
+      "population_proper": "16084"
+    },
+    {
+      "city": "Csongrád",
+      "lat": "46.7111",
+      "lng": "20.1403",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Csongrád",
+      "capital": "minor",
+      "population": "16027",
+      "population_proper": "16027"
+    },
+    {
+      "city": "Pécel",
+      "lat": "47.4911",
+      "lng": "19.3419",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Pest",
+      "capital": "",
+      "population": "15987",
+      "population_proper": "15987"
+    },
+    {
+      "city": "Szarvas",
+      "lat": "46.8500",
+      "lng": "20.6000",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Békés",
+      "capital": "minor",
+      "population": "15565",
+      "population_proper": "15565"
+    },
+    {
+      "city": "Kalocsa",
+      "lat": "46.5333",
+      "lng": "18.9856",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Bács-Kiskun",
+      "capital": "minor",
+      "population": "15490",
+      "population_proper": "15490"
+    },
+    {
+      "city": "Tiszaújváros",
+      "lat": "47.9228",
+      "lng": "21.0519",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Borsod-Abaúj-Zemplén",
+      "capital": "minor",
+      "population": "15371",
+      "population_proper": "15371"
+    },
+    {
+      "city": "Tapolca",
+      "lat": "46.8828",
+      "lng": "17.4411",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Veszprém",
+      "capital": "minor",
+      "population": "15072",
+      "population_proper": "15072"
+    },
+    {
+      "city": "Sárvár",
+      "lat": "47.2539",
+      "lng": "16.9353",
+      "country": "Hungary",
+      "iso2": "HU",
+      "admin_name": "Vas",
+      "capital": "minor",
+      "population": "15072",
+      "population_proper": "15072"
     }
   ],
   "mapStyles": {
-    "gta": [
-      {
-        "featureType": "all",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "all",
-        "elementType": "labels.text",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "all",
-        "elementType": "labels.icon",
-        "stylers": [
-          {
-            "visibility": "on"
-          }
-        ]
-      },
-      {
-        "featureType": "landscape",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "visibility": "on"
-          },
-          {
-            "color": "#ffffff"
-          }
-        ]
-      },
-      {
-        "featureType": "landscape.man_made",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "visibility": "simplified"
-          },
-          {
-            "color": "#1d1d1d"
-          }
-        ]
-      },
-      {
-        "featureType": "landscape.man_made",
-        "elementType": "geometry.stroke",
-        "stylers": [
-          {
-            "color": "#000000"
-          },
-          {
-            "weight": "10.00"
-          }
-        ]
-      },
-      {
-        "featureType": "landscape.natural",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "visibility": "simplified"
-          },
-          {
-            "color": "#000000"
-          }
-        ]
-      },
-      {
-        "featureType": "poi",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "visibility": "on"
-          },
-          {
-            "color": "#ffffff"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.attraction",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "color": "#ffffff"
-          },
-          {
-            "visibility": "on"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.business",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "color": "#ffffff"
-          },
-          {
-            "visibility": "on"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.government",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "color": "#ffffff"
-          },
-          {
-            "visibility": "on"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.medical",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#fcfcfc"
-          },
-          {
-            "visibility": "on"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.medical",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.park",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "color": "#788c40"
-          },
-          {
-            "visibility": "on"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.place_of_worship",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "invert_lightness": true
-          },
-          {
-            "visibility": "on"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.school",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "color": "#ffffff"
-          },
-          {
-            "visibility": "on"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.sports_complex",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#ffffff"
-          }
-        ]
-      },
-      {
-        "featureType": "road.highway",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#bebebe"
-          }
-        ]
-      },
-      {
-        "featureType": "road.highway",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "road.arterial",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#aeaeae"
-          }
-        ]
-      },
-      {
-        "featureType": "road.local",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#777777"
-          }
-        ]
-      },
-      {
-        "featureType": "transit",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "weight": "0.01"
-          },
-          {
-            "saturation": "-33"
-          },
-          {
-            "visibility": "on"
-          },
-          {
-            "hue": "#ff0000"
-          }
-        ]
-      },
-      {
-        "featureType": "transit",
-        "elementType": "labels.icon",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "transit.line",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#000000"
-          },
-          {
-            "weight": "0.01"
-          }
-        ]
-      },
-      {
-        "featureType": "transit.line",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "visibility": "on"
-          },
-          {
-            "color": "#ff0000"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "color": "#7088b0"
-          }
-        ]
-      }
-    ],
     "dark": [
       {
         "elementType": "geometry",
@@ -510,6 +1155,572 @@
           }
         ]
       }
+    ],
+    "silver": [
+      {
+        "featureType": "all",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "on"
+          }
+        ]
+      },
+      {
+        "featureType": "all",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          },
+          {
+            "saturation": "-100"
+          }
+        ]
+      },
+      {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "saturation": 36
+          },
+          {
+            "color": "#000000"
+          },
+          {
+            "lightness": 40
+          },
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+          {
+            "visibility": "off"
+          },
+          {
+            "color": "#000000"
+          },
+          {
+            "lightness": 16
+          }
+        ]
+      },
+      {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#000000"
+          },
+          {
+            "lightness": 20
+          }
+        ]
+      },
+      {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#000000"
+          },
+          {
+            "lightness": 17
+          },
+          {
+            "weight": 1.2
+          }
+        ]
+      },
+      {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#000000"
+          },
+          {
+            "lightness": 20
+          }
+        ]
+      },
+      {
+        "featureType": "landscape",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#4d6059"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#4d6059"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.natural",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#4d6059"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "lightness": 21
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#4d6059"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#4d6059"
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "visibility": "on"
+          },
+          {
+            "color": "#7f8d89"
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#7f8d89"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#7f8d89"
+          },
+          {
+            "lightness": 17
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#7f8d89"
+          },
+          {
+            "lightness": 29
+          },
+          {
+            "weight": 0.2
+          }
+        ]
+      },
+      {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#000000"
+          },
+          {
+            "lightness": 18
+          }
+        ]
+      },
+      {
+        "featureType": "road.arterial",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#7f8d89"
+          }
+        ]
+      },
+      {
+        "featureType": "road.arterial",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#7f8d89"
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#000000"
+          },
+          {
+            "lightness": 16
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#7f8d89"
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#7f8d89"
+          }
+        ]
+      },
+      {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#000000"
+          },
+          {
+            "lightness": 19
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+          {
+            "color": "#2b3638"
+          },
+          {
+            "visibility": "on"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#2b3638"
+          },
+          {
+            "lightness": 17
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#24282b"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#24282b"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels.text",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels.icon",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      }
+    ],
+    "desert": [
+      {
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          },
+          {
+            "color": "#f49f53"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape",
+        "stylers": [
+          {
+            "color": "#f9ddc5"
+          },
+          {
+            "lightness": -7
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "stylers": [
+          {
+            "color": "#813033"
+          },
+          {
+            "lightness": 43
+          }
+        ]
+      },
+      {
+        "featureType": "poi.business",
+        "stylers": [
+          {
+            "color": "#645c20"
+          },
+          {
+            "lightness": 38
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "stylers": [
+          {
+            "color": "#1994bf"
+          },
+          {
+            "saturation": -69
+          },
+          {
+            "gamma": 0.99
+          },
+          {
+            "lightness": 43
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#f19f53"
+          },
+          {
+            "weight": 1.3
+          },
+          {
+            "visibility": "on"
+          },
+          {
+            "lightness": 16
+          }
+        ]
+      },
+      {
+        "featureType": "poi.business"
+      },
+      {
+        "featureType": "poi.park",
+        "stylers": [
+          {
+            "color": "#645c20"
+          },
+          {
+            "lightness": 39
+          }
+        ]
+      },
+      {
+        "featureType": "poi.school",
+        "stylers": [
+          {
+            "color": "#a95521"
+          },
+          {
+            "lightness": 35
+          }
+        ]
+      },
+      {},
+      {
+        "featureType": "poi.medical",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#813033"
+          },
+          {
+            "lightness": 38
+          },
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "elementType": "labels"
+      },
+      {
+        "featureType": "poi.sports_complex",
+        "stylers": [
+          {
+            "color": "#9e5916"
+          },
+          {
+            "lightness": 32
+          }
+        ]
+      },
+      {},
+      {
+        "featureType": "poi.government",
+        "stylers": [
+          {
+            "color": "#9e5916"
+          },
+          {
+            "lightness": 46
+          }
+        ]
+      },
+      {
+        "featureType": "transit.station",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "transit.line",
+        "stylers": [
+          {
+            "color": "#813033"
+          },
+          {
+            "lightness": 22
+          }
+        ]
+      },
+      {
+        "featureType": "transit",
+        "stylers": [
+          {
+            "lightness": 38
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#f19f53"
+          },
+          {
+            "lightness": -10
+          }
+        ]
+      },
+      {},
+      {},
+      {}
     ]
   }
 }
