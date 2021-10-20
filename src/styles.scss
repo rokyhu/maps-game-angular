@@ -14,6 +14,7 @@ html,
 body {
   // font-family: "Poppins", sans-serif;
   height: 100%;
+  box-sizing: border-box;
 }
 
 h1,
@@ -46,8 +47,10 @@ li {
   text-align: center;
 }
 
-.mat-grid-tile-content {
+.flex-stretch {
   display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start !important;
   justify-content: space-between !important;
   padding: 20px !important;
 }

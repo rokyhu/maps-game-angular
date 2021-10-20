@@ -9,7 +9,6 @@ import { CitiesService } from 'src/app/services/cities.service';
 import { MapStylesService } from 'src/app/services/map-styles.service';
 import { City } from '../../city';
 import {} from 'googlemaps';
-import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 
 @Component({
   selector: 'app-map',
@@ -158,7 +157,7 @@ export class MapComponent implements AfterViewInit {
   ) {
     const marker = this.createMarker(position, map, title, null);
     this.markers.push(marker);
-    marker.setMap(null);
+    marker.setMap(null); // hide game markers by default
   }
 
   addMarkerGuess(

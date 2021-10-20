@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./map-radio.component.scss'],
 })
 export class MapRadioComponent implements OnInit {
-  @Input() cities: City[] = [];
+  @Input() pickedCities: City[] = [];
   activeCity = new FormControl('');
 
   constructor() {}

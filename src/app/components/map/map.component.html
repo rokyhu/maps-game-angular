@@ -1,13 +1,24 @@
-<mat-grid-list class="flex-stretch" cols="1" rowHeight="150px">
-  <mat-grid-tile class="align-text-top" colspan="1" rowspan="1">
-    <app-map-radio [cities]="pickedCities"></app-map-radio>
+<mat-progress-bar
+  class="city-progress-bar"
+  color="warn"
+  value="40"
+></mat-progress-bar>
+
+<div class="flex-stretch">
+  <div class="align-text-top app-map-radio">
+    <app-map-radio class="" [pickedCities]="pickedCities"></app-map-radio>
+  </div>
+
+  <div class="align-text-top app-map-styles">
     <app-map-styles
+      class="app-map-styles"
       [mapStyles]="mapStyles"
       [activeMapStyle]="activeMapStyle"
       (onChangeMapStyleEvent)="changeMap($event)"
     ></app-map-styles>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="4">
-    <div #mapContainer id="map"></div>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div>
+
+<div class="flex-stretch">
+  <div #mapContainer id="map"></div>
+</div>

@@ -1,4 +1,4 @@
-<div class="mat-typography">
+<div class="mat-typography app-map-radio">
   <!-- <label id="radio-group-label">Pick a city to place on the map:</label>
   <mat-radio-group
     aria-labelledby="radio-group-label"
@@ -20,7 +20,8 @@
       {{ activeCity | uppercase }}
     </button>
   </h3> -->
-  <h3>Pick a city and double click to place on the map.</h3>
+
+  <!-- <h3>Pick a city and double click to place on the map.</h3>
   <section>
     <mat-button-toggle-group
       vertical="false"
@@ -36,5 +37,37 @@
         {{ city.city }}
       </mat-button-toggle>
     </mat-button-toggle-group>
+  </section> -->
+
+  <section>
+    <mat-button-toggle-group
+      class="city-group"
+      vertical="false"
+      color="warn"
+      [formControl]="activeCity"
+      aria-label="Select City"
+    >
+      <mat-button-toggle
+        class="city-colorize"
+        (change)="onCheck()"
+        value="Szentendre"
+        checked="true"
+        disabled="{{ false }}"
+      >
+        <mat-icon aria-hidden="false" aria-label="Pin icon">room</mat-icon
+        >Szentendre
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <mat-button-toggle-group
+      vertical="false"
+      color="warn"
+      [formControl]="activeCity"
+      aria-label="Select City"
+    >
+      <mat-button-toggle> Next </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <p>Double click to place city on map then click next to confirm.</p>
   </section>
 </div>
