@@ -45,3 +45,9 @@ li {
 .mat-display-1 {
   text-align: center;
 }
+
+.mat-grid-tile-content {
+  display: flex;
+  justify-content: space-between !important;
+  padding: 20px !important;
+}

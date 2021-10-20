@@ -51,12 +51,12 @@ export class MapComponent implements AfterViewInit {
       this.pickedCities = this.pickCities(10);
       this.mapStyleService.getMapStyles('gta').subscribe((styles) => {
         this.mapStyles = styles;
-        this.mapInitializer();
+        this.initMap();
       });
     });
   }
 
-  mapInitializer() {
+  initMap() {
     this.coordinates = new google.maps.LatLng(this.lat, this.lng);
     this.mapOptions = {
       center: this.coordinates,

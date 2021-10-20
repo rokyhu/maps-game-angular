@@ -20,6 +20,7 @@
       {{ activeCity | uppercase }}
     </button>
   </h3> -->
+  <h3>Pick a city and double click to place on the map.</h3>
   <section>
     <mat-button-toggle-group
       vertical="false"
@@ -30,17 +31,10 @@
         (change)="onCheck()"
         *ngFor="let city of cities"
         value="{{ city.city }}"
-        disabled="{{ city.disabled }}"
+        disabled="{{ false }}"
       >
         {{ city.city }}
       </mat-button-toggle>
     </mat-button-toggle-group>
   </section>
-
-  <h3 *ngIf="activeCity.value">
-    You are currently placing <br />
-    <button mat-raised-button color="primary">
-      {{ activeCity.value }}
-    </button>
-  </h3>
 </div>

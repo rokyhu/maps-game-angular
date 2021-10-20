@@ -970,7 +970,7 @@
     }
   ],
   "mapStyles": {
-    "dark": [
+    "night": [
       {
         "elementType": "geometry",
         "stylers": [
