@@ -28,7 +28,7 @@ export class MapComponent implements AfterViewInit {
   mapStyles: any;
   activeMapStyle: string = 'silver';
   currentGuessIndex: number = 0;
-  markers: google.maps.Marker[] = [];
+  markers: Map<number, google.maps.Marker> = new Map();
   markerGuess: google.maps.Marker = null;
   bounds: any;
 
@@ -96,10 +96,11 @@ export class MapComponent implements AfterViewInit {
         city.city
       );
     }
+    console.log(this.markers);
   }
 
   toggleGameMarkersOnMap() {
-    if (this.markers[0].getMap() == null) {
+    if (this.markers.get(0).getMap() == null) {
       this.setMapOnAll(this.map);
     } else {
       this.setMapOnAll(null);
@@ -107,7 +108,7 @@ export class MapComponent implements AfterViewInit {
   }
 
   setMapOnAll(map: google.maps.Map) {
-    for (let marker of this.markers) {
+    for (const [key, marker] of this.markers.entries()) {
       marker.setMap(map);
       if (map !== null) {
         marker.setAnimation(google.maps.Animation.DROP);
@@ -126,7 +127,7 @@ export class MapComponent implements AfterViewInit {
     let east;
     let west;
 
-    for (let marker of this.markers) {
+    for (const [key, marker] of this.markers.entries()) {
       north =
         north !== undefined
           ? Math.max(north, marker.getPosition().lat())
@@ -156,7 +157,8 @@ export class MapComponent implements AfterViewInit {
     title: string
   ) {
     const marker = this.createMarker(position, map, title, null);
-    this.markers.push(marker);
+    console.log(Object.keys(this.markers).length);
+    this.markers.set(this.markers.size, marker);
     marker.setMap(null); // hide game markers by default
   }
 
