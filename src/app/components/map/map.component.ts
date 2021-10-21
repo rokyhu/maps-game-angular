@@ -249,10 +249,17 @@ export class MapComponent implements AfterViewInit {
   }
 
   onGameOver() {
+    let title;
+    if (this.currentScore >= this.markers.size) {
+      title = 'Congratulations!';
+    } else {
+      title = 'Better luck next time.';
+    }
+
     let dialogRef = this.dialog.open(DialogWarnComponent, {
       data: {
-        title: 'Congratulations!',
-        body: `You scored ${this.currentScore}!`,
+        title: title,
+        body: `You scored ${this.currentScore}.`,
       },
     });
 
