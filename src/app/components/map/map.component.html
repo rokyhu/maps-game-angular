@@ -6,7 +6,12 @@
 
 <div class="flex-stretch">
   <div class="align-text-top app-map-radio">
-    <app-map-radio class="" [pickedCities]="pickedCities"></app-map-radio>
+    <app-map-radio
+      *ngIf="isDataLoaded"
+      class=""
+      [markers]="markers"
+      [markersGuessed]="markersGuessed"
+    ></app-map-radio>
   </div>
 
   <div class="align-text-top app-map-styles">

@@ -29,8 +29,10 @@ export class MapComponent implements AfterViewInit {
   activeMapStyle: string = 'silver';
   currentGuessIndex: number = 0;
   markers: Map<number, google.maps.Marker> = new Map();
+  markersGuessed: Map<number, google.maps.Marker> = new Map();
   markerGuess: google.maps.Marker = null;
   bounds: any;
+  isDataLoaded: boolean = false;
 
   targetIcon = '../../assets/images/target-32px.png';
 
@@ -51,6 +53,7 @@ export class MapComponent implements AfterViewInit {
       this.mapStyleService.getMapStyles('gta').subscribe((styles) => {
         this.mapStyles = styles;
         this.initMap();
+        this.isDataLoaded = true;
       });
     });
   }
@@ -157,9 +160,9 @@ export class MapComponent implements AfterViewInit {
     title: string
   ) {
     const marker = this.createMarker(position, map, title, null);
-    console.log(Object.keys(this.markers).length);
     this.markers.set(this.markers.size, marker);
     marker.setMap(null); // hide game markers by default
+    console.log(marker.getTitle());
   }
 
   addMarkerGuess(

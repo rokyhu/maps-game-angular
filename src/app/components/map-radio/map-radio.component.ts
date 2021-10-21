@@ -1,5 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { City } from '../../city';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  Input,
+  SimpleChanges,
+  OnInit,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -8,14 +14,15 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./map-radio.component.scss'],
 })
 export class MapRadioComponent implements OnInit {
-  @Input() pickedCities: City[] = [];
-  activeCity = new FormControl('');
+  @Input() markers: Map<number, google.maps.Marker>;
+  @Input() markersGuessed: Map<number, google.maps.Marker>;
+  currentGuessIndex: number = 0;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onCheck(): void {
-    console.log(this.activeCity.value);
+    console.log('yoooo');
   }
 }

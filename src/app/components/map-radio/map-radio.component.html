@@ -44,25 +44,23 @@
       class="city-group"
       vertical="false"
       color="warn"
-      [formControl]="activeCity"
       aria-label="Select City"
     >
       <mat-button-toggle
         class="city-colorize"
         (change)="onCheck()"
-        value="Szentendre"
+        value="{{ markers.get(0).getTitle() }}"
         checked="true"
         disabled="true"
       >
         <mat-icon aria-hidden="false" aria-label="Pin icon">room</mat-icon
-        >Szentendre
+        >{{ markers.get(0).getTitle() }}
       </mat-button-toggle>
     </mat-button-toggle-group>
 
     <mat-button-toggle-group
       vertical="false"
       color="warn"
-      [formControl]="activeCity"
       aria-label="Select City"
     >
       <mat-button-toggle>
