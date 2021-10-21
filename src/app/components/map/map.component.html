@@ -1,7 +1,7 @@
 <mat-progress-bar
   class="city-progress-bar"
   color="warn"
-  value="40"
+  [value]="(currentGuessIndex / markers.size) * 100"
 ></mat-progress-bar>
 
 <div class="flex-stretch">
