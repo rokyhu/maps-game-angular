@@ -27,7 +27,7 @@ export class MapComponent implements AfterViewInit {
     }
   }
 
-  NUMBER_OF_CITIES: number = 5;
+  NUMBER_OF_CITIES: number = 8;
   cities: City[];
   pickedCities: City[];
   mapStyles: any;
