@@ -49,6 +49,12 @@ export class MapComponent implements AfterViewInit {
 
   mapOptions: google.maps.MapOptions;
 
+  constructor(
+    private citiesService: CitiesService,
+    private mapStyleService: MapStylesService,
+    public dialog: MatDialog
+  ) {}
+
   ngAfterViewInit() {
     this.citiesService.getCities().subscribe((cities) => {
       this.cities = cities;
@@ -121,12 +127,6 @@ export class MapComponent implements AfterViewInit {
       }
     }
   }
-
-  constructor(
-    private citiesService: CitiesService,
-    private mapStyleService: MapStylesService,
-    public dialog: MatDialog
-  ) {}
 
   getBounds() {
     let north;
@@ -223,11 +223,27 @@ export class MapComponent implements AfterViewInit {
   }
 
   openDialogConfirmGuess() {
-    this.dialog.open(DialogConfirmComponent, {
+    let dialogRef = this.dialog.open(DialogConfirmComponent, {
       data: {
         title: 'Confirm guess',
         body: 'Please confirm your guess or go back to make a change.',
       },
     });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      // received data from dialog-component upon closing
+      if (res.hasOwnProperty('data') && res.data) {
+        this.handleGuessConfirmation();
+      }
+    });
+  }
+  handleGuessConfirmation() {
+    this.currentMarkerGuess.setMap(null); // hide from map
+    this.markersGuessed.set(this.markersGuessed.size, this.currentMarkerGuess); // each map item will get a key starting from 0
+    this.currentMarkerGuess = null;
+    this.currentGuessIndex = this.currentGuessIndex + 1;
+    if (this.markersGuessed.size === this.markers.size) {
+      alert('game over');
+    }
   }
 }

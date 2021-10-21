@@ -3,27 +3,26 @@ import {
   Output,
   EventEmitter,
   Input,
-  SimpleChanges,
-  OnInit,
+  OnChanges,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-map-radio',
   templateUrl: './map-radio.component.html',
   styleUrls: ['./map-radio.component.scss'],
 })
-export class MapRadioComponent implements OnInit {
+export class MapRadioComponent implements OnChanges {
   @Input() markers: Map<number, google.maps.Marker>;
   @Input() markersGuessed: Map<number, google.maps.Marker>;
-  currentGuessIndex: number = 0;
+  @Input() currentGuessIndex: number;
   @Output() onGuessSubmit: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnChanges(): void {}
 
-  onClick(): void {
+  onClick(event: any): void {
+    console.log(event.currentTarget);
     this.onGuessSubmit.emit();
   }
 }

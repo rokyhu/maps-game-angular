@@ -10,6 +10,7 @@
       *ngIf="isDataLoaded"
       class=""
       [markers]="markers"
+      [currentGuessIndex]="currentGuessIndex"
       [markersGuessed]="markersGuessed"
       (onGuessSubmit)="onGuessSubmit()"
     ></app-map-radio>
@@ -17,6 +18,7 @@
 
   <div class="align-text-top app-map-styles">
     <app-map-styles
+      *ngIf="isDataLoaded"
       class="app-map-styles"
       [mapStyles]="mapStyles"
       [activeMapStyle]="activeMapStyle"
