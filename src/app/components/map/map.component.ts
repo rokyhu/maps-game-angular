@@ -38,7 +38,11 @@ export class MapComponent implements AfterViewInit {
   bounds: any;
   isDataLoaded: boolean = false;
 
-  targetIcon = '../../assets/images/target-40px.png';
+  targetIcon = {
+    url: '../../assets/images/spotlight-green-hidpi.png',
+    size: new google.maps.Size(27, 43),
+    scaledSize: new google.maps.Size(27, 43),
+  };
 
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
 
@@ -266,7 +270,7 @@ export class MapComponent implements AfterViewInit {
 
     path.setMap(this.map);
 
-    this.mapOptions.maxZoom = 12;
+    this.mapOptions.maxZoom = 9;
 
     this.map.setOptions(this.mapOptions);
 
