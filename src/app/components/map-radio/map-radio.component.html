@@ -27,8 +27,17 @@
 
     <mat-button-toggle-group aria-label="Confirm City Guess">
       <mat-button-toggle
-        (click)="onClick($event)"
+        (click)="onConfirmClick($event)"
+        *ngIf="currentGuessIndex < markers.size"
+        checked="false"
+        [disabled]="currentMarkerGuess == null"
+      >
+        Confirm
+      </mat-button-toggle>
+      <mat-button-toggle
+        (click)="onNextClick($event)"
         [disabled]="!(currentGuessIndex < markers.size)"
+        checked="false"
       >
         Next
         <mat-icon aria-hidden="false" color="warn" aria-label="Right arrow icon"

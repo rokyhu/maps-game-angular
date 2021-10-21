@@ -15,14 +15,18 @@ export class MapRadioComponent implements OnChanges {
   @Input() markers: Map<number, google.maps.Marker>;
   @Input() markersGuessed: Map<number, google.maps.Marker>;
   @Input() currentGuessIndex: number;
+  @Input() currentMarkerGuess: google.maps.Marker;
   @Output() onGuessSubmit: EventEmitter<string> = new EventEmitter<string>();
-
+  @Output() onAdvanceToNext: EventEmitter<string> = new EventEmitter<string>();
   constructor() {}
 
   ngOnChanges(): void {}
 
-  onClick(event: any): void {
-    console.log(event.currentTarget);
+  onConfirmClick(event: any): void {
     this.onGuessSubmit.emit();
+  }
+
+  onNextClick(event: any): void {
+    this.onAdvanceToNext.emit();
   }
 }

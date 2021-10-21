@@ -11,8 +11,10 @@
       class=""
       [markers]="markers"
       [currentGuessIndex]="currentGuessIndex"
+      [currentMarkerGuess]="currentMarkerGuess"
       [markersGuessed]="markersGuessed"
       (onGuessSubmit)="onGuessSubmit()"
+      (onAdvanceToNext)="onAdvanceToNext()"
     ></app-map-radio>
   </div>
 

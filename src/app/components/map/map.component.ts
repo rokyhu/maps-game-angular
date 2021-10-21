@@ -32,6 +32,7 @@ export class MapComponent implements AfterViewInit {
   activeMapStyle: string = 'silver';
   currentGuessIndex: number = 0;
   markers: Map<number, google.maps.Marker> = new Map();
+  paths: Map<number, google.maps.Polyline> = new Map();
   markersGuessed: Map<number, google.maps.Marker> = new Map();
   currentMarkerGuess: google.maps.Marker = null;
   bounds: any;
@@ -83,8 +84,7 @@ export class MapComponent implements AfterViewInit {
       this.addMarkerGuess(e.latLng, this.map)
     );
     this.addGameMarkers();
-    this.bounds = this.getBounds();
-    this.map.fitBounds(this.bounds);
+    this.centerMapOnMarkerMap(this.markers);
   }
 
   pickCities(count: number): City[] {
@@ -128,13 +128,18 @@ export class MapComponent implements AfterViewInit {
     }
   }
 
-  getBounds() {
+  private centerMapOnMarkerMap(markers: Map<number, google.maps.Marker>) {
+    this.bounds = this.getBounds(markers);
+    this.map.fitBounds(this.bounds);
+  }
+
+  getBounds(markers: Map<number, google.maps.Marker>) {
     let north;
     let south;
     let east;
     let west;
 
-    for (const [key, marker] of this.markers.entries()) {
+    for (const [key, marker] of markers.entries()) {
       north =
         north !== undefined
           ? Math.max(north, marker.getPosition().lat())
@@ -216,8 +221,8 @@ export class MapComponent implements AfterViewInit {
   openDialogGuessNotFound() {
     this.dialog.open(DialogWarnComponent, {
       data: {
-        title: 'Error!',
-        body: 'No guess for city found. Please double on map to make a guess.',
+        title: 'No city guess found',
+        body: 'Please double click on map to make a guess.',
       },
     });
   }
@@ -232,12 +237,53 @@ export class MapComponent implements AfterViewInit {
 
     dialogRef.afterClosed().subscribe((res) => {
       // received data from dialog-component upon closing
-      if (res.hasOwnProperty('data') && res.data) {
-        this.handleGuessConfirmation();
-      }
+      this.revealGuessResult();
     });
   }
-  handleGuessConfirmation() {
+
+  revealGuessResult() {
+    // alert(
+    //   `${this.currentMarkerGuess.getTitle()}: ${this.currentMarkerGuess.getPosition()} // ${this.markers
+    //     .get(this.currentGuessIndex)
+    //     .getTitle()}: ${this.markers.get(this.currentGuessIndex).getPosition()}`
+    // );
+    this.markers.get(this.currentGuessIndex).setMap(this.map);
+
+    const marker: google.maps.Marker = this.markers.get(this.currentGuessIndex);
+
+    let distance = google.maps.geometry.spherical.computeDistanceBetween(
+      marker.getPosition(),
+      this.currentMarkerGuess.getPosition()
+    );
+
+    const path = new google.maps.Polyline({
+      path: [marker.getPosition(), this.currentMarkerGuess.getPosition()],
+      geodesic: true,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2,
+    });
+
+    path.setMap(this.map);
+
+    this.mapOptions.maxZoom = 12;
+
+    this.map.setOptions(this.mapOptions);
+
+    this.paths.set(this.paths.size, path);
+
+    this.centerMapOnMarkerMap(
+      new Map([
+        [0, marker],
+        [1, this.currentMarkerGuess],
+      ])
+    );
+
+    alert(distance);
+  }
+
+  onAdvanceToNext() {
+    this.markers.get(this.currentGuessIndex).setMap(null);
     this.currentMarkerGuess.setMap(null); // hide from map
     this.markersGuessed.set(this.markersGuessed.size, this.currentMarkerGuess); // each map item will get a key starting from 0
     this.currentMarkerGuess = null;
