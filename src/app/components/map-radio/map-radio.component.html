@@ -1,8 +1,5 @@
 <div class="mat-typography app-map-radio">
   <section>
-    <mat-icon aria-hidden="false" color="warn" aria-label="Score icon"
-      >offline_bolt</mat-icon
-    >
     <button
       class="bebas-neue"
       mat-fab
@@ -18,21 +15,14 @@
     >
       <mat-button-toggle
         class="city-colorize"
-        value="{{
-          currentGuessIndex < markers.size
-            ? markers.get(currentGuessIndex).getTitle()
-            : 'city'
-        }}"
+        *ngIf="currentGuessIndex < markers.size"
+        value="{{ markers.get(currentGuessIndex).getTitle() }}"
         checked="true"
         disabled="true"
       >
         <mat-icon aria-hidden="false" color="warn" aria-label="Pin icon"
           >room</mat-icon
-        >{{
-          currentGuessIndex < markers.size
-            ? markers.get(currentGuessIndex).getTitle()
-            : "City"
-        }}
+        >{{ markers.get(currentGuessIndex).getTitle() }}
       </mat-button-toggle>
     </mat-button-toggle-group>
 

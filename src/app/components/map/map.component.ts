@@ -27,6 +27,7 @@ export class MapComponent implements AfterViewInit {
     }
   }
 
+  NUMBER_OF_CITIES: number = 5;
   cities: City[];
   pickedCities: City[];
   mapStyles: any;
@@ -46,6 +47,21 @@ export class MapComponent implements AfterViewInit {
     [35, { score: 1, color: 'orange' }],
   ]);
   currentScore: number = 0;
+
+  resetLocalVariables() {
+    this.cities = null;
+    this.pickedCities = null;
+    this.mapStyles = null;
+    this.currentGuessIndex = 0;
+    this.markers.clear();
+    this.paths.clear();
+    this.markersGuessed.clear();
+    this.readyForNextGuess = false;
+    this.currentMarkerGuess = null;
+    this.bounds = null;
+    this.isDataLoaded = false;
+    this.currentScore = 0;
+  }
 
   targetIcon = {
     url: '../../assets/images/spotlight-green-hidpi.png',
@@ -70,9 +86,10 @@ export class MapComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit() {
+    this.resetLocalVariables();
     this.citiesService.getCities().subscribe((cities) => {
       this.cities = cities;
-      this.pickedCities = this.pickCities(10);
+      this.pickedCities = this.pickCities(this.NUMBER_OF_CITIES);
       this.mapStyleService.getMapStyles('gta').subscribe((styles) => {
         this.mapStyles = styles;
         this.initMap();
@@ -186,6 +203,9 @@ export class MapComponent implements AfterViewInit {
   }
 
   addMarkerGuess(position: google.maps.LatLng, map: google.maps.Map) {
+    if (this.readyForNextGuess) {
+      return;
+    }
     const title = `Guess for ${this.markers
       .get(this.currentGuessIndex)
       .getTitle()}`;
@@ -223,19 +243,21 @@ export class MapComponent implements AfterViewInit {
   }
 
   onGuessSubmit() {
-    if (this.currentMarkerGuess === null) {
-      this.openDialogGuessNotFound();
-    } else {
+    if (this.currentMarkerGuess !== null) {
       this.openDialogConfirmGuess();
     }
   }
 
-  openDialogGuessNotFound() {
-    this.dialog.open(DialogWarnComponent, {
+  onGameOver() {
+    let dialogRef = this.dialog.open(DialogWarnComponent, {
       data: {
-        title: 'No city guess found',
-        body: 'Please double click on map to make a guess.',
+        title: 'Congratulations!',
+        body: `You scored ${this.currentScore}!`,
       },
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      this.ngAfterViewInit();
     });
   }
 
@@ -328,7 +350,7 @@ export class MapComponent implements AfterViewInit {
     this.currentMarkerGuess = null;
     this.currentGuessIndex = this.currentGuessIndex + 1;
     if (this.markersGuessed.size === this.markers.size) {
-      alert('game over');
+      this.onGameOver();
     }
   }
 
