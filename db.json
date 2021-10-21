@@ -980,26 +980,56 @@
         ]
       },
       {
-        "elementType": "labels.icon",
+        "featureType": "all",
+        "elementType": "labels",
         "stylers": [
+          {
+            "visibility": "off"
+          },
+          {
+            "saturation": "-100"
+          }
+        ]
+      },
+      {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "saturation": 36
+          },
+          {
+            "color": "#000000"
+          },
+          {
+            "lightness": 40
+          },
           {
             "visibility": "off"
           }
         ]
       },
       {
-        "elementType": "labels.text.fill",
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
         "stylers": [
           {
-            "color": "#757575"
+            "visibility": "off"
+          },
+          {
+            "color": "#000000"
+          },
+          {
+            "lightness": 16
           }
         ]
       },
       {
-        "elementType": "labels.text.stroke",
+        "featureType": "all",
+        "elementType": "labels.icon",
         "stylers": [
           {
-            "color": "#212121"
+            "visibility": "off"
           }
         ]
       },
