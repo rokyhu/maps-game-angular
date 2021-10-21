@@ -27,7 +27,7 @@ export class MapComponent implements AfterViewInit {
     }
   }
 
-  NUMBER_OF_CITIES: number = 8;
+  NUMBER_OF_CITIES: number = 5;
   cities: City[];
   pickedCities: City[];
   mapStyles: any;
@@ -42,9 +42,9 @@ export class MapComponent implements AfterViewInit {
   isDataLoaded: boolean = false;
   scoringMap: Map<number, ScoringGuide> = new Map([
     [2, { score: 5, color: 'green' }],
-    [3, { score: 3, color: 'teal' }],
-    [10, { score: 2, color: 'yellow' }],
-    [35, { score: 1, color: 'orange' }],
+    [4, { score: 3, color: 'teal' }],
+    [15, { score: 2, color: 'yellow' }],
+    [45, { score: 1, color: 'orange' }],
   ]);
   currentScore: number = 0;
 
