@@ -8,6 +8,7 @@ import {
 import { CitiesService } from 'src/app/services/cities.service';
 import { MapStylesService } from 'src/app/services/map-styles.service';
 import { City } from '../../city';
+import { ScoringGuide } from '../../scoringGuide';
 import {} from 'googlemaps';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogWarnComponent } from '../dialog-warn/dialog-warn.component';
@@ -34,9 +35,17 @@ export class MapComponent implements AfterViewInit {
   markers: Map<number, google.maps.Marker> = new Map();
   paths: Map<number, google.maps.Polyline> = new Map();
   markersGuessed: Map<number, google.maps.Marker> = new Map();
+  readyForNextGuess: boolean = false;
   currentMarkerGuess: google.maps.Marker = null;
   bounds: any;
   isDataLoaded: boolean = false;
+  scoringMap: Map<number, ScoringGuide> = new Map([
+    [2, { score: 5, color: 'green' }],
+    [3, { score: 3, color: 'teal' }],
+    [10, { score: 2, color: 'yellow' }],
+    [35, { score: 1, color: 'orange' }],
+  ]);
+  currentScore: number = 0;
 
   targetIcon = {
     url: '../../assets/images/spotlight-green-hidpi.png',
@@ -112,7 +121,6 @@ export class MapComponent implements AfterViewInit {
         city.city
       );
     }
-    console.log(this.markers);
   }
 
   toggleGameMarkersOnMap() {
@@ -241,29 +249,34 @@ export class MapComponent implements AfterViewInit {
 
     dialogRef.afterClosed().subscribe((res) => {
       // received data from dialog-component upon closing
-      this.revealGuessResult();
+      if (res.hasOwnProperty('data') && res.data) {
+        this.revealGuessResult();
+      }
     });
   }
 
   revealGuessResult() {
-    // alert(
-    //   `${this.currentMarkerGuess.getTitle()}: ${this.currentMarkerGuess.getPosition()} // ${this.markers
-    //     .get(this.currentGuessIndex)
-    //     .getTitle()}: ${this.markers.get(this.currentGuessIndex).getPosition()}`
-    // );
     this.markers.get(this.currentGuessIndex).setMap(this.map);
 
     const marker: google.maps.Marker = this.markers.get(this.currentGuessIndex);
 
-    let distance = google.maps.geometry.spherical.computeDistanceBetween(
-      marker.getPosition(),
-      this.currentMarkerGuess.getPosition()
+    const distanceInKm: number = this.getDistanceInKms(
+      marker,
+      this.currentMarkerGuess
     );
+
+    console.log('distance: ' + distanceInKm);
+
+    const scoringGuide: ScoringGuide = this.getScoringGuide(distanceInKm);
+
+    console.log('score add: ' + scoringGuide.score);
+
+    this.currentScore = this.currentScore + scoringGuide.score;
 
     const path = new google.maps.Polyline({
       path: [marker.getPosition(), this.currentMarkerGuess.getPosition()],
       geodesic: true,
-      strokeColor: '#FF0000',
+      strokeColor: scoringGuide.color,
       strokeOpacity: 1.0,
       strokeWeight: 2,
     });
@@ -271,7 +284,6 @@ export class MapComponent implements AfterViewInit {
     path.setMap(this.map);
 
     this.mapOptions.maxZoom = 9;
-
     this.map.setOptions(this.mapOptions);
 
     this.paths.set(this.paths.size, path);
@@ -283,11 +295,34 @@ export class MapComponent implements AfterViewInit {
       ])
     );
 
-    alert(distance);
+    this.readyForNextGuess = true;
+  }
+
+  getDistanceInKms(
+    marker1: google.maps.Marker,
+    marker2: google.maps.Marker
+  ): number {
+    const distanceInMeters =
+      google.maps.geometry.spherical.computeDistanceBetween(
+        marker1.getPosition(),
+        marker2.getPosition()
+      );
+    return Math.ceil(distanceInMeters / 1000);
+  }
+
+  getScoringGuide(distanceInKm: number): ScoringGuide {
+    for (const [key, scoringGuide] of this.scoringMap.entries()) {
+      if (distanceInKm <= key) {
+        return scoringGuide;
+      }
+    }
+    return { score: 0, color: 'red' };
   }
 
   onAdvanceToNext() {
-    this.markers.get(this.currentGuessIndex).setMap(null);
+    this.readyForNextGuess = false;
+    this.resetMapView();
+
     this.currentMarkerGuess.setMap(null); // hide from map
     this.markersGuessed.set(this.markersGuessed.size, this.currentMarkerGuess); // each map item will get a key starting from 0
     this.currentMarkerGuess = null;
@@ -295,5 +330,13 @@ export class MapComponent implements AfterViewInit {
     if (this.markersGuessed.size === this.markers.size) {
       alert('game over');
     }
+  }
+
+  private resetMapView() {
+    this.mapOptions.maxZoom = 8;
+    this.map.setOptions(this.mapOptions);
+    this.centerMapOnMarkerMap(this.markers);
+    this.markers.get(this.currentGuessIndex).setMap(null);
+    this.paths.get(this.currentGuessIndex).setMap(null);
   }
 }

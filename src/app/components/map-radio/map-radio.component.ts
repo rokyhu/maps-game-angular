@@ -16,6 +16,8 @@ export class MapRadioComponent implements OnChanges {
   @Input() markersGuessed: Map<number, google.maps.Marker>;
   @Input() currentGuessIndex: number;
   @Input() currentMarkerGuess: google.maps.Marker;
+  @Input() currentScore: number;
+  @Input() readyForNextGuess: boolean;
   @Output() onGuessSubmit: EventEmitter<string> = new EventEmitter<string>();
   @Output() onAdvanceToNext: EventEmitter<string> = new EventEmitter<string>();
   constructor() {}

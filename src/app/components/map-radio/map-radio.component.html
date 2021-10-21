@@ -1,5 +1,16 @@
 <div class="mat-typography app-map-radio">
   <section>
+    <mat-icon aria-hidden="false" color="warn" aria-label="Score icon"
+      >offline_bolt</mat-icon
+    >
+    <button
+      class="bebas-neue"
+      mat-fab
+      color="warn"
+      aria-label="Example icon button with a bookmark icon"
+    >
+      {{ currentScore }}
+    </button>
     <mat-button-toggle-group
       class="city-group"
       vertical="false"
@@ -27,14 +38,18 @@
 
     <mat-button-toggle-group aria-label="Confirm City Guess">
       <mat-button-toggle
+        *ngIf="
+          currentMarkerGuess != null &&
+          currentGuessIndex < markers.size &&
+          !readyForNextGuess
+        "
         (click)="onConfirmClick($event)"
-        *ngIf="currentGuessIndex < markers.size"
         checked="false"
-        [disabled]="currentMarkerGuess == null"
       >
         Confirm
       </mat-button-toggle>
       <mat-button-toggle
+        *ngIf="readyForNextGuess"
         (click)="onNextClick($event)"
         [disabled]="!(currentGuessIndex < markers.size)"
         checked="false"
