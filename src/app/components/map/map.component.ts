@@ -9,6 +9,9 @@ import { CitiesService } from 'src/app/services/cities.service';
 import { MapStylesService } from 'src/app/services/map-styles.service';
 import { City } from '../../city';
 import {} from 'googlemaps';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogWarnComponent } from '../dialog-warn/dialog-warn.component';
+import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
 
 @Component({
   selector: 'app-map',
@@ -30,7 +33,7 @@ export class MapComponent implements AfterViewInit {
   currentGuessIndex: number = 0;
   markers: Map<number, google.maps.Marker> = new Map();
   markersGuessed: Map<number, google.maps.Marker> = new Map();
-  markerGuess: google.maps.Marker = null;
+  currentMarkerGuess: google.maps.Marker = null;
   bounds: any;
   isDataLoaded: boolean = false;
 
@@ -71,7 +74,7 @@ export class MapComponent implements AfterViewInit {
 
     this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
     this.map.addListener('dblclick', (e) =>
-      this.addMarkerGuess(e.latLng, this.map, 'Your guess')
+      this.addMarkerGuess(e.latLng, this.map)
     );
     this.addGameMarkers();
     this.bounds = this.getBounds();
@@ -121,7 +124,8 @@ export class MapComponent implements AfterViewInit {
 
   constructor(
     private citiesService: CitiesService,
-    private mapStyleService: MapStylesService
+    private mapStyleService: MapStylesService,
+    public dialog: MatDialog
   ) {}
 
   getBounds() {
@@ -160,26 +164,24 @@ export class MapComponent implements AfterViewInit {
     title: string
   ) {
     const marker = this.createMarker(position, map, title, null);
-    this.markers.set(this.markers.size, marker);
+    this.markers.set(this.markers.size, marker); // each map item will get a key starting from 0
     marker.setMap(null); // hide game markers by default
-    console.log(marker.getTitle());
   }
 
-  addMarkerGuess(
-    position: google.maps.LatLng,
-    map: google.maps.Map,
-    title: string
-  ) {
+  addMarkerGuess(position: google.maps.LatLng, map: google.maps.Map) {
+    const title = `Guess for ${this.markers
+      .get(this.currentGuessIndex)
+      .getTitle()}`;
     const marker = this.createMarker(position, map, title, this.targetIcon);
-    if (this.markerGuess !== null) {
-      this.markerGuess.setMap(null);
+    if (this.currentMarkerGuess !== null) {
+      this.currentMarkerGuess.setMap(null);
     }
-    this.markerGuess = marker;
-    this.markerGuess.setMap(map);
+    this.currentMarkerGuess = marker;
+    this.currentMarkerGuess.setMap(map);
 
-    this.markerGuess.addListener('dblclick', () => {
-      this.markerGuess.setMap(null);
-      this.markerGuess = null;
+    this.currentMarkerGuess.addListener('dblclick', () => {
+      this.currentMarkerGuess.setMap(null);
+      this.currentMarkerGuess = null;
     });
   }
 
@@ -201,5 +203,31 @@ export class MapComponent implements AfterViewInit {
     this.mapOptions.styles = this.mapStyles[style];
     this.map.setOptions(this.mapOptions);
     this.map.fitBounds(this.bounds);
+  }
+
+  onGuessSubmit() {
+    if (this.currentMarkerGuess === null) {
+      this.openDialogGuessNotFound();
+    } else {
+      this.openDialogConfirmGuess();
+    }
+  }
+
+  openDialogGuessNotFound() {
+    this.dialog.open(DialogWarnComponent, {
+      data: {
+        title: 'Error!',
+        body: 'No guess for city found. Please double on map to make a guess.',
+      },
+    });
+  }
+
+  openDialogConfirmGuess() {
+    this.dialog.open(DialogConfirmComponent, {
+      data: {
+        title: 'Confirm guess',
+        body: 'Please confirm your guess or go back to make a change.',
+      },
+    });
   }
 }

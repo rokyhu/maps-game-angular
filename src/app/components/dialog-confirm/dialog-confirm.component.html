@@ -1,0 +1,14 @@
+<div class="quicksand-types">
+  <h1 mat-dialog-title><mat-icon>help</mat-icon>{{ data.title }}</h1>
+  <div mat-dialog-content>
+    <p class="quicksand">
+      {{ data.body }}
+    </p>
+  </div>
+  <div class="quicksand-types" mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Go back</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+      Confirm
+    </button>
+  </div>
+</div>

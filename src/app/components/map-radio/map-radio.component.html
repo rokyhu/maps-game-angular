@@ -1,69 +1,24 @@
 <div class="mat-typography app-map-radio">
-  <!-- <label id="radio-group-label">Pick a city to place on the map:</label>
-  <mat-radio-group
-    aria-labelledby="radio-group-label"
-    class="radio-group"
-    [(ngModel)]="activeCity"
-  >
-    <mat-radio-button
-      class="radio-button"
-      *ngFor="let city of cities"
-      [value]="city"
-    >
-      {{ city }}
-    </mat-radio-button>
-  </mat-radio-group>
-
-  <h3 *ngIf="activeCity">
-    You are currently placing:<br />
-    <button mat-raised-button color="primary">
-      {{ activeCity | uppercase }}
-    </button>
-  </h3> -->
-
-  <!-- <h3>Pick a city and double click to place on the map.</h3>
-  <section>
-    <mat-button-toggle-group
-      vertical="false"
-      [formControl]="activeCity"
-      aria-label="Select City"
-    >
-      <mat-button-toggle
-        (change)="onCheck()"
-        *ngFor="let city of cities"
-        value="{{ city.city }}"
-        disabled="{{ false }}"
-      >
-        {{ city.city }}
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-  </section> -->
-
   <section>
     <mat-button-toggle-group
       class="city-group"
       vertical="false"
-      aria-label="Select City"
+      aria-label="Guessed Selected"
     >
       <mat-button-toggle
         class="city-colorize"
-        (change)="onCheck()"
-        value="{{ markers.get(0).getTitle() }}"
+        value="{{ markers.get(currentGuessIndex).getTitle() }}"
         checked="true"
         disabled="true"
       >
         <mat-icon aria-hidden="false" color="warn" aria-label="Pin icon"
           >room</mat-icon
-        >{{ markers.get(0).getTitle() }}
+        >{{ markers.get(currentGuessIndex).getTitle() }}
       </mat-button-toggle>
     </mat-button-toggle-group>
 
-    <mat-button-toggle-group
-      vertical="false"
-      color="warn"
-      aria-label="Select City"
-    >
-      <mat-button-toggle>
+    <mat-button-toggle-group aria-label="Confirm City Guess">
+      <mat-button-toggle (click)="onClick()">
         Next
         <mat-icon aria-hidden="false" color="warn" aria-label="Right arrow icon"
           >chevron_right</mat-icon

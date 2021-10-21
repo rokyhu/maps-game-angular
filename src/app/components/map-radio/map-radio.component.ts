@@ -17,12 +17,13 @@ export class MapRadioComponent implements OnInit {
   @Input() markers: Map<number, google.maps.Marker>;
   @Input() markersGuessed: Map<number, google.maps.Marker>;
   currentGuessIndex: number = 0;
+  @Output() onGuessSubmit: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onCheck(): void {
-    console.log('yoooo');
+  onClick(): void {
+    this.onGuessSubmit.emit();
   }
 }

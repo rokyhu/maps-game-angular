@@ -15,6 +15,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -26,6 +27,8 @@ import { TutorialComponent } from './components/tutorial/tutorial.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MapRadioComponent } from './components/map-radio/map-radio.component';
 import { MapStylesComponent } from './components/map-styles/map-styles.component';
+import { DialogWarnComponent } from './components/dialog-warn/dialog-warn.component';
+import { DialogConfirmComponent } from './components/dialog-confirm/dialog-confirm.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,8 @@ import { MapStylesComponent } from './components/map-styles/map-styles.component
     MenuComponent,
     MapRadioComponent,
     MapStylesComponent,
+    DialogWarnComponent,
+    DialogConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +63,7 @@ import { MapStylesComponent } from './components/map-styles/map-styles.component
     MatButtonToggleModule,
     ReactiveFormsModule,
     MatProgressBarModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
