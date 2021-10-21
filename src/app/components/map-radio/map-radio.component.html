@@ -43,7 +43,6 @@
     <mat-button-toggle-group
       class="city-group"
       vertical="false"
-      color="warn"
       aria-label="Select City"
     >
       <mat-button-toggle
@@ -53,7 +52,8 @@
         checked="true"
         disabled="true"
       >
-        <mat-icon aria-hidden="false" aria-label="Pin icon">room</mat-icon
+        <mat-icon aria-hidden="false" color="warn" aria-label="Pin icon"
+          >room</mat-icon
         >{{ markers.get(0).getTitle() }}
       </mat-button-toggle>
     </mat-button-toggle-group>
@@ -65,7 +65,7 @@
     >
       <mat-button-toggle>
         Next
-        <mat-icon aria-hidden="false" aria-label="Right arrow icon"
+        <mat-icon aria-hidden="false" color="warn" aria-label="Right arrow icon"
           >chevron_right</mat-icon
         ></mat-button-toggle
       >

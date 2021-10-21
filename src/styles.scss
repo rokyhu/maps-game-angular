@@ -1,7 +1,5 @@
 @use "@angular/material" as mat;
 
-// @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
-
 @import "../src/assets/indigo-pink.css";
 
 * {
@@ -42,6 +40,20 @@ li {
   @include mat.all-component-typographies($quicksand-typography);
 }
 
+.alternative-theme {
+  $alternative-typography: mat.define-typography-config(
+    $font-family: "Poppins. sans-serif",
+  );
+
+  $alternative-theme: mat.define-light-theme(
+    (
+      typography: $alternative-typography,
+    )
+  );
+
+  @include mat.all-component-themes($alternative-theme);
+}
+
 .mat-display-2,
 .mat-display-1 {
   text-align: center;
@@ -57,4 +69,30 @@ li {
 
 .mat-icon {
   margin-right: 5px;
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
 }
