@@ -37,7 +37,7 @@ export class MapComponent implements AfterViewInit {
   bounds: any;
   isDataLoaded: boolean = false;
 
-  targetIcon = '../../assets/images/target-32px.png';
+  targetIcon = '../../assets/images/target-40px.png';
 
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
 
